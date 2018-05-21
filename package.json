@@ -1,6 +1,9 @@
 {
   "author": "Simon Repp",
   "description": "eno language support in Atom",
+  "engines": {
+    "atom": "*"
+  },
   "license": "MIT",
   "name": "language-eno",
   "repository": "https://github.com/eno-lang/language-eno",
