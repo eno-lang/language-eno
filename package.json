@@ -7,6 +7,7 @@
   },
   "homepage": "https://eno-lang.org/",
   "license": "MIT",
+  "main": "./lib/main.js",
   "name": "language-eno",
   "repository": {
     "type": "git",
