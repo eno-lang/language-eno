@@ -43,6 +43,9 @@ repository:
     endCaptures:
       1: name: 'punctuation.definition.block.name.end.eno'
       2: name: 'variable.other.name.eno'
+    patterns: [
+      { include: 'text.eno.embedded' }
+    ]
   }
   comment: {
     comment: '> comment'
