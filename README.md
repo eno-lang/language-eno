@@ -11,6 +11,6 @@ With this in mind, and a clear commitment to readability, *language-eno* follows
 
 ## Embedded language support
 
-If you are using an embedded language inside your eno documents, you can provide its language scope name(s) in language-eno's plugin settings, thereby enabling syntax highlighting for your embedded language within blocks in eno documents.
+If you are using an embedded language inside your eno documents, you can provide its language scope name(s) in language-eno's plugin settings to get syntax highlighting for your embedded language within blocks in eno documents.
 
-Also there's a setting to disable Atom's default behaviour of trailing whitespace removal for eno documents, which is usually not wanted when markup languages like markdown are embedded within fields and blocks.
+Also there's a setting to disable Atom's default behaviour of trailing whitespace removal for eno documents, which is usually not wanted when markup languages like markdown are used.
