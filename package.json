@@ -1,6 +1,8 @@
 {
   "author": "Simon Repp <simon@fdpl.io>",
-  "bugs": "https://github.com/eno-lang/language-eno/issues/",
+  "bugs": {
+    "url": "https://github.com/eno-lang/language-eno/issues/"
+  },
   "description": "eno language support in Atom",
   "engines": {
     "atom": "*"
