@@ -206,7 +206,7 @@ repository:
   }
   name: {
     comment: 'name:'
-    match: '^\\s*+(?![>\\-#=:*\\\\|`])([^<=:]+?)\\s*(:)\\s*$'
+    match: '^\\s*+(?![>\\-#=:\\\\|`])([^<=:]+?)\\s*(:)\\s*$'
     captures:
       1: name: 'variable.other.name.eno'
       2: name: 'punctuation.separator.name.eno'
