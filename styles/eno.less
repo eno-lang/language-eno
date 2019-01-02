@@ -1,0 +1,24 @@
+@import 'syntax-variables';
+
+.syntax--text.syntax--eno {
+  .syntax--entity.syntax--name,
+  .syntax--entity.syntax--name.syntax--section, {
+    color: @syntax-color-tag;
+  }
+
+  .syntax--entity.syntax--name.syntax--template, {
+    color: @syntax-color-class;
+  }
+
+  .syntax--entity.syntax--name.syntax--fieldset-entry {
+    color: @syntax-color-attribute;
+  }
+
+  .syntax--punctuation {
+    color: @syntax-color-function;
+  }
+
+  .syntax--punctuation.syntax--definition.syntax--section {
+    color: @syntax-color-keyword;
+  }
+}
