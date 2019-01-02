@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 / `2019-01-02`
+
+#### Changed
+
+- New syntax theme variable based custom highlighting and improved grammar `292e28c`
+
+#### Removed
+
+- Drop static default style overrides `39c8dcb`
+
 ## 0.3.4 / `2018-12-25`
 
 #### Fixed
