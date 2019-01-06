@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1 / `2019-01-06`
+
+#### Maintenance
+
+- Add screenshot to readme `5066a82`
+- Various grammar tweaks `3225c66`
+
 ## 0.4.0 / `2019-01-02`
 
 #### Changed
