@@ -39,7 +39,7 @@ repository:
   comment: {
     comment: '> comment'
     match: '^\\s*+(>).*$'
-    name: 'comment.line.eno'
+    name: 'comment.eno'
     captures:
       1: name: 'punctuation.definition.comment.eno'
   }
@@ -60,7 +60,7 @@ repository:
   }
   escapedCopy: {
     comment: '`name` < template'
-    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*(<(?!<)|<<)\\s*+(\\S.*?)\\s*$'
+    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(<(?!<)|<<)\\s*+(\\S.*?)\\s*$'
     captures:
       1: name: 'punctuation.definition.name.begin.eno'
       2: name: 'entity.name.element.eno'
@@ -70,7 +70,7 @@ repository:
   }
   escapedField: {
     comment: '`name`: value'
-    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*(:)\\s*+(\\S.*?)\\s*$'
+    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(:)\\s*+(\\S.*?)\\s*$'
     captures:
       1: name: 'punctuation.definition.name.begin.eno'
       2: name: 'entity.name.field.eno'
@@ -90,7 +90,7 @@ repository:
   }
   escapedName: {
     comment: '`name`:'
-    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*(:)\\s*$'
+    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(:)\\s*$'
     captures:
       1: name: 'punctuation.definition.name.begin.eno'
       2: name: 'entity.name.element.eno'
@@ -99,7 +99,7 @@ repository:
   }
   escapedSection: {
     comment: '# `section` [[<]< section]'
-    match: '^\\s*+(##*+)\\s*+(`++)\\s*+((?:(?!\\2).)+)\\s*(\\2)\\s*(?:(<(?!<)|<<)\\s*+(\\S.*?)\\s*)?$'
+    match: '^\\s*+(##*+)\\s*+(`++)\\s*+((?:(?!\\2).)+)\\s*(\\2)\\s*+(?:(<(?!<)|<<)\\s*+(\\S.*?)\\s*)?$'
     captures:
       1: name: 'punctuation.definition.section.eno'
       2: name: 'punctuation.definition.name.begin.eno'
