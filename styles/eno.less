@@ -1,24 +1,25 @@
 @import 'syntax-variables';
 
 .syntax--text.syntax--eno {
-  .syntax--entity.syntax--name,
-  .syntax--entity.syntax--name.syntax--section, {
+  .syntax--entity.syntax--name {
     color: @syntax-color-tag;
-  }
 
-  .syntax--entity.syntax--name.syntax--template, {
-    color: @syntax-color-class;
-  }
+    &.syntax--fieldset-entry {
+      color: @syntax-color-attribute;
+    }
 
-  .syntax--entity.syntax--name.syntax--fieldset-entry {
-    color: @syntax-color-attribute;
+    &.syntax--section {
+      color: @syntax-color-class;
+
+    }
+
+    &.syntax--template {
+      font-style: italic;
+    }
   }
 
   .syntax--punctuation {
-    color: @syntax-color-function;
-  }
-
-  .syntax--punctuation.syntax--definition.syntax--section {
     color: @syntax-color-keyword;
   }
+
 }
