@@ -56,7 +56,7 @@ repository:
     captures:
       1: name: 'entity.name.element.eno'
       2: name: 'punctuation.separator.template.eno'
-      3: name: 'entity.name.template.eno'
+      3: name: 'entity.name.element.template.eno'
   }
   escapedCopy: {
     comment: '`name` < template'
@@ -66,7 +66,7 @@ repository:
       2: name: 'entity.name.element.eno'
       3: name: 'punctuation.definition.name.end.eno'
       4: name: 'punctuation.separator.template.eno'
-      5: name: 'entity.name.template.eno'
+      5: name: 'entity.name.element.template.eno'
   }
   escapedField: {
     comment: '`name`: value'
@@ -106,7 +106,7 @@ repository:
       3: name: 'entity.name.section.eno'
       4: name: 'punctuation.definition.name.end.eno'
       5: name: 'punctuation.separator.template.eno'
-      6: name: 'entity.name.template.eno'
+      6: name: 'entity.name.section.template.eno'
   }
   field: {
     comment: 'name: value'
@@ -150,5 +150,5 @@ repository:
       1: name: 'punctuation.definition.section.eno'
       2: name: 'entity.name.section.eno'
       3: name: 'punctuation.separator.template.eno'
-      4: name: 'entity.name.template.eno'
+      4: name: 'entity.name.section.template.eno'
   }
