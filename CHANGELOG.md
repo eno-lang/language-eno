@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3
+
+- Update scope terminology to latest language specification `6d42570bc`
+
 ## 0.4.2
 
 - Improve visual distinction of sections `258817e`
