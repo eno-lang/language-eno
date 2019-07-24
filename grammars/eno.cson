@@ -11,12 +11,14 @@ patterns: [
   { include: '#multilineField' }
   { include: '#continuation' }
   { include: '#section' }
+  { include: '#empty' }
   { include: '#copy' }
   { include: '#escapedFieldsetEntry' }
   { include: '#escapedField' }
   { include: '#escapedCopy' }
   { include: '#escapedElement' }
   { include: '#escapedSection' }
+  { include: '#escapedEmpty' }
   { include: '#illegal' }
 ]
 
@@ -50,6 +52,12 @@ repository:
       1: name: 'entity.name.element.eno'
       2: name: 'punctuation.definition.element.eno'
   }
+  empty: {
+    comment: 'empty'
+    match: '^\\s*+(?![>\\-#=:\\\\|`])([^<=:]+?)\\s*$'
+    captures:
+      1: name: 'entity.name.empty.eno'
+  }
   escapedCopy: {
     comment: '`copy` < template'
     match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(<(?!<)|<<)\\s*+(\\S.*?)\\s*$'
@@ -68,6 +76,14 @@ repository:
       2: name: 'entity.name.element.eno'
       3: name: 'punctuation.definition.name.end.eno'
       4: name: 'punctuation.definition.element.eno'
+  }
+  escapedEmpty: {
+    comment: '`empty`'
+    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*$'
+    captures:
+      1: name: 'punctuation.definition.name.begin.eno'
+      2: name: 'entity.name.empty.eno'
+      3: name: 'punctuation.definition.name.end.eno'
   }
   escapedField: {
     comment: '`field`: value'
