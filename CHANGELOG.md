@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.0
+
+- Optimize rule order by likelihood of occurrence `640f5e3`
+- Adapt grammar to support empties `2e84483`
+
 ## 0.4.3
 
 - Update scope terminology to latest language specification `6d42570bc`
