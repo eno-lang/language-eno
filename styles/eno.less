@@ -1,7 +1,7 @@
 @import 'syntax-variables';
 
-.syntax--text.syntax--eno {
-  .syntax--entity.syntax--name {
+.syntax--eno {
+  &.syntax--entity.syntax--name {
     color: @syntax-color-tag;
 
     &.syntax--fieldset-entry {
@@ -10,7 +10,6 @@
 
     &.syntax--section {
       color: @syntax-color-class;
-
     }
 
     &.syntax--template {
@@ -18,8 +17,7 @@
     }
   }
 
-  .syntax--punctuation {
+  &.syntax--punctuation {
     color: @syntax-color-keyword;
   }
-
 }

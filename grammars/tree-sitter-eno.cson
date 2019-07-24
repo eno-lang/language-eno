@@ -1,0 +1,46 @@
+fileTypes: ['eno']
+name: 'eno'
+parser: 'tree-sitter-eno'
+scopeName: 'text.eno'
+type: 'tree-sitter'
+
+folds: [
+  { type: 'comment' }
+  { type: 'fieldset' }
+  { type: 'list' }
+  { type: 'section' }
+  {
+    type: 'field',
+    start: { type: 'multilineFieldOperator', index: 0 }
+    end: { type: 'key', index: -1 }
+  }
+]
+
+scopes:
+  'commentOperator': 'punctuation.definition.comment.eno'
+  'comment': 'comment.eno'
+  'copyOperator': 'punctuation.separator.template.eno'
+  'deepCopyOperator': 'punctuation.separator.template.eno'
+  'directContinuationOperator': 'punctuation.definition.continuation.direct.eno'
+  'escapeOperator': 'punctuation.definition.name.eno'
+  'element > elementOperator': 'punctuation.definition.element.eno'
+  'element > key': 'entity.name.element.eno'
+  'element > template': 'entity.name.element.template.eno'
+  'empty > key': 'entity.name.empty.eno'
+  'entry > key': 'entity.name.fieldset-entry.eno'
+  'entry > key': 'entity.name.fieldset-entry.eno'
+  'ERROR': 'invalid.illegal.eno'
+  'field > elementOperator': 'punctuation.separator.field.eno'
+  'field > key': 'entity.name.field.eno'
+  'fieldset > elementOperator': 'punctuation.definition.fieldset.eno'
+  'fieldset > key': 'entity.name.fieldset.eno'
+  'fieldset > template': 'entity.name.fieldset.template.eno'
+  'itemOperator': 'punctuation.definition.list-item.eno'
+  'list > key': 'entity.name.list.eno'
+  'list > template': 'entity.name.list.template.eno'
+  'multilineFieldOperator': 'punctuation.definition.multiline-field.begin.eno'
+  'entryOperator': 'punctuation.separator.fieldset-entry.eno'
+  'section > key': 'entity.name.section.eno'
+  'section > template': 'entity.name.section.template.eno'
+  'sectionOperator' : 'punctuation.definition.section.eno'
+  'spacedContinuationOperator': 'punctuation.definition.continuation.spaced.eno'
