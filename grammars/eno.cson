@@ -13,12 +13,12 @@ patterns: [
   { include: '#section' }
   { include: '#empty' }
   { include: '#copy' }
-  { include: '#escapedFieldsetEntry' }
-  { include: '#escapedField' }
-  { include: '#escapedCopy' }
   { include: '#escapedElement' }
+  { include: '#escapedField' }
+  { include: '#escapedFieldsetEntry' }
   { include: '#escapedSection' }
   { include: '#escapedEmpty' }
+  { include: '#escapedCopy' }
   { include: '#illegal' }
 ]
 
