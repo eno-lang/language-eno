@@ -1,25 +1,12 @@
 @import 'syntax-variables';
 
 .syntax--text.syntax--eno {
-  .syntax--entity.syntax--name {
-    color: @syntax-color-tag;
+    .syntax--entity.syntax--name {
+        color: @syntax-color-tag;
 
-    &.syntax--fieldset-entry {
-      color: @syntax-color-attribute;
+        &.syntax--attribute { color: @syntax-color-attribute; }
+        &.syntax--section { color: @syntax-color-class; }
     }
 
-    &.syntax--section {
-      color: @syntax-color-class;
-
-    }
-
-    &.syntax--template {
-      font-style: italic;
-    }
-  }
-
-  .syntax--punctuation {
-    color: @syntax-color-keyword;
-  }
-
+    .syntax--punctuation { color: @syntax-color-keyword; }
 }

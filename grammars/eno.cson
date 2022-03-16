@@ -4,25 +4,28 @@ scopeName: 'text.eno'
 
 patterns: [
   { include: '#comment' }
-  { include: '#element' }
   { include: '#field' }
-  { include: '#listItem' }
-  { include: '#fieldsetEntry' }
-  { include: '#multilineField' }
+  { include: '#item' }
+  { include: '#attribute' }
+  { include: '#embed' }
   { include: '#continuation' }
   { include: '#section' }
   { include: '#empty' }
-  { include: '#copy' }
-  { include: '#escapedElement' }
   { include: '#escapedField' }
-  { include: '#escapedFieldsetEntry' }
-  { include: '#escapedSection' }
+  { include: '#escapedAttribute' }
   { include: '#escapedEmpty' }
-  { include: '#escapedCopy' }
   { include: '#illegal' }
 ]
 
 repository:
+  attribute: {
+    comment: 'attribute = value'
+    match: '^\\s*+(?![>\\-#\\\\|`])([^<=:]+?)\\s*(=)\\s*+(\\S.*?)?\\s*$'
+    captures:
+      1: name: 'entity.name.attribute.eno'
+      2: name: 'punctuation.separator.attribute.eno'
+      3: name: 'value.eno'
+  }
   comment: {
     comment: '> comment'
     match: '^\\s*+(>).*$'
@@ -37,45 +40,36 @@ repository:
       1: name: 'punctuation.definition.continuation.eno'
       2: name: 'value.eno'
   }
-  copy: {
-    comment: 'copy < template'
-    match: '^\\s*+(?![>\\-#\\\\|`])([^<=:]+?)\\s*(<(?!<)|<<)\\s*+(\\S.*?)\\s*$'
-    captures:
-      1: name: 'entity.name.element.eno'
-      2: name: 'punctuation.separator.template.eno'
-      3: name: 'entity.name.element.template.eno'
-  }
-  element: {
-    comment: 'element:'
-    match: '^\\s*+(?![>\\-#=:\\\\|`])([^<=:]+?)\\s*(:)\\s*$'
-    captures:
-      1: name: 'entity.name.element.eno'
-      2: name: 'punctuation.definition.element.eno'
+  embed: {
+    comment: '-- embed'
+    begin: '^\\s*+(--++)\\s*+(\\S.*?)\\s*$'
+    beginCaptures:
+      1: name: 'punctuation.definition.embed.begin.eno'
+      2: name: 'entity.name.embed.eno'
+    contentName: 'value.eno'
+    end: '^\\s*+(\\1)(?!-)\\s*+(\\2)\\s*$'
+    endCaptures:
+      1: name: 'punctuation.definition.embed.end.eno'
+      2: name: 'entity.name.embed.eno'
+    patterns: [
+      { include: 'text.eno.embedded' }
+    ]
   }
   empty: {
     comment: 'empty'
-    match: '^\\s*+(?![>\\-#=:\\\\|`])([^<=:]+?)\\s*$'
+    match: '^\\s*+(?![>\\-#=:\\\\|`])([^=:]+?)\\s*$'
     captures:
       1: name: 'entity.name.empty.eno'
   }
-  escapedCopy: {
-    comment: '`copy` < template'
-    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(<(?!<)|<<)\\s*+(\\S.*?)\\s*$'
+  escapedAttribute: {
+    comment: '`attribute` = value'
+    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(=)\\s*+(\\S.*?)?\\s*$'
     captures:
       1: name: 'punctuation.definition.name.begin.eno'
-      2: name: 'entity.name.element.eno'
+      2: name: 'entity.name.attribute.eno'
       3: name: 'punctuation.definition.name.end.eno'
-      4: name: 'punctuation.separator.template.eno'
-      5: name: 'entity.name.element.template.eno'
-  }
-  escapedElement: {
-    comment: '`element`:'
-    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(:)\\s*$'
-    captures:
-      1: name: 'punctuation.definition.name.begin.eno'
-      2: name: 'entity.name.element.eno'
-      3: name: 'punctuation.definition.name.end.eno'
-      4: name: 'punctuation.definition.element.eno'
+      4: name: 'punctuation.separator.attribute.eno'
+      5: name: 'value.eno'
   }
   escapedEmpty: {
     comment: '`empty`'
@@ -87,7 +81,7 @@ repository:
   }
   escapedField: {
     comment: '`field`: value'
-    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(:)\\s*+(\\S.*?)\\s*$'
+    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(:)\\s*+(\\S.*?)?\\s*$'
     captures:
       1: name: 'punctuation.definition.name.begin.eno'
       2: name: 'entity.name.field.eno'
@@ -95,41 +89,12 @@ repository:
       4: name: 'punctuation.separator.field.eno'
       5: name: 'value.eno'
   }
-  escapedFieldsetEntry: {
-    comment: '`entry` = value'
-    match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*+(=)\\s*+(\\S.*?)?\\s*$'
-    captures:
-      1: name: 'punctuation.definition.name.begin.eno'
-      2: name: 'entity.name.fieldset-entry.eno'
-      3: name: 'punctuation.definition.name.end.eno'
-      4: name: 'punctuation.separator.fieldset-entry.eno'
-      5: name: 'value.eno'
-  }
-  escapedSection: {
-    comment: '# `section` [[<]< template]'
-    match: '^\\s*+(##*+)\\s*+(`++)\\s*+((?:(?!\\2).)+)\\s*(\\2)\\s*+(?:(<(?!<)|<<)\\s*+(\\S.*?)\\s*)?$'
-    captures:
-      1: name: 'punctuation.definition.section.eno'
-      2: name: 'punctuation.definition.name.begin.eno'
-      3: name: 'entity.name.section.eno'
-      4: name: 'punctuation.definition.name.end.eno'
-      5: name: 'punctuation.separator.template.eno'
-      6: name: 'entity.name.section.template.eno'
-  }
   field: {
     comment: 'field: value'
-    match: '^\\s*+(?![>\\-#\\\\|`])([^<=:]+?)\\s*(:)\\s*+(\\S.*?)\\s*$'
+    match: '^\\s*+(?![>\\-#\\\\|`])([^=:]+?)\\s*(:)\\s*+(\\S.*?)?\\s*$'
     captures:
       1: name: 'entity.name.field.eno'
       2: name: 'punctuation.separator.field.eno'
-      3: name: 'value.eno'
-  }
-  fieldsetEntry: {
-    comment: 'entry = value'
-    match: '^\\s*+(?![>\\-#\\\\|`])([^<=:]+?)\\s*(=)\\s*+(\\S.*?)?\\s*$'
-    captures:
-      1: name: 'entity.name.fieldset-entry.eno'
-      2: name: 'punctuation.separator.fieldset-entry.eno'
       3: name: 'value.eno'
   }
   illegal: {
@@ -137,34 +102,17 @@ repository:
     captures:
       1: name: 'invalid.illegal.eno'
   }
-  listItem: {
+  item: {
     comment: '- item'
     match: '^\\s*+(-)(?!-)\\s*+(\\S.*?)?\\s*$'
     captures:
-      1: name: 'punctuation.definition.list-item.eno'
+      1: name: 'punctuation.definition.item.eno'
       2: name: 'value.eno'
   }
-  multilineField: {
-    comment: '-- multiline field'
-    begin: '^\\s*+(--++)\\s*+(\\S.*?)\\s*$'
-    beginCaptures:
-      1: name: 'punctuation.definition.multiline-field.begin.eno'
-      2: name: 'entity.name.multiline-field.eno'
-    contentName: 'value.eno'
-    end: '^\\s*+(\\1)(?!-)\\s*+(\\2)\\s*$'
-    endCaptures:
-      1: name: 'punctuation.definition.multiline-field.end.eno'
-      2: name: 'entity.name.multiline-field.eno'
-    patterns: [
-      { include: 'text.eno.embedded' }
-    ]
-  }
   section: {
-    comment: '# section [[<]< template]'
-    match: '^\\s*+(##*+)\\s*+([^\\s<`][^<]*?)\\s*(?:(<(?!<)|<<)\\s*+(\\S.*?)\\s*)?$'
+    comment: '# section'
+    match: '^\\s*+(##*+)\\s*+(\\S.*?)\\s*$'
     captures:
       1: name: 'punctuation.definition.section.eno'
       2: name: 'entity.name.section.eno'
-      3: name: 'punctuation.separator.template.eno'
-      4: name: 'entity.name.section.template.eno'
   }
