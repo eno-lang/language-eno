@@ -10,10 +10,10 @@ patterns: [
   { include: '#embed' }
   { include: '#continuation' }
   { include: '#section' }
-  { include: '#empty' }
+  { include: '#flag' }
   { include: '#escapedField' }
   { include: '#escapedAttribute' }
-  { include: '#escapedEmpty' }
+  { include: '#escapedFlag' }
   { include: '#illegal' }
 ]
 
@@ -55,11 +55,11 @@ repository:
       { include: 'text.eno.embedded' }
     ]
   }
-  empty: {
-    comment: 'empty'
+  flag: {
+    comment: 'flag'
     match: '^\\s*+(?![>\\-#=:\\\\|`])([^=:]+?)\\s*$'
     captures:
-      1: name: 'entity.name.empty.eno'
+      1: name: 'entity.name.flag.eno'
   }
   escapedAttribute: {
     comment: '`attribute` = value'
@@ -71,12 +71,12 @@ repository:
       4: name: 'punctuation.separator.attribute.eno'
       5: name: 'value.eno'
   }
-  escapedEmpty: {
-    comment: '`empty`'
+  escapedFlag: {
+    comment: '`flag`'
     match: '^\\s*+(`++)\\s*+((?:(?!\\1).)+)\\s*(\\1)\\s*$'
     captures:
       1: name: 'punctuation.definition.name.begin.eno'
-      2: name: 'entity.name.empty.eno'
+      2: name: 'entity.name.flag.eno'
       3: name: 'punctuation.definition.name.end.eno'
   }
   escapedField: {
