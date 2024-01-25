@@ -1,6 +1,6 @@
 # language-eno
 
-Complete language support for [Eno](https://eno-lang.org), featuring
+Complete language support for [Eno](https://simonrepp.com/eno/), featuring
 thoroughly crafted custom syntax highlighting behaviour, as well as practical
 features to aid with authoring different languages when they are embedded
 inside Eno documents.
