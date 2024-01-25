@@ -1,19 +1,8 @@
 {
-  "author": "Simon Repp <simon@fdpl.io>",
-  "bugs": {
-    "url": "https://github.com/eno-lang/language-eno/issues/"
-  },
-  "description": "Eno language support in Atom",
-  "engines": {
-    "atom": "*"
-  },
-  "homepage": "https://eno-lang.org/",
-  "license": "MIT",
-  "main": "./lib/main.js",
-  "name": "language-eno",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eno-lang/language-eno.git"
-  },
-  "version": "0.5.1"
+    "author": "Simon Repp",
+    "description": "Eno language support in Pulsar",
+    "license": "MIT",
+    "main": "./lib/main.js",
+    "name": "language-eno",
+    "version": "0.6.0"
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0
+
+- Update scope terminology according to latest language specification
+- Remove continuations and copies as they were dropped from the spec
+- Reflect the migration from Atom to Pulsar in texts
+
 ## 0.5.1
 
 - Minor labeling/text corrections and tweaks
